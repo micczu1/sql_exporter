@@ -46,9 +46,9 @@
 
 - name: Unpack sql_exporter binary
   unarchive:
-    src: "/tmp/sql-exporter-{{ sql_exporter_version }}.linux-{{ go_arch_map[ansible_architecture] | default(ansible_architecture) }}.tar.gz"
+    src: "/tmp/sql_exporter-{{ sql_exporter_version }}.linux-{{ go_arch_map[ansible_architecture] | default(ansible_architecture) }}.tar.gz"
     dest: "/tmp"
-    creates: "/tmp/sql-exporter-{{ sql_exporter_version }}.linux-{{ go_arch_map[ansible_architecture] | default(ansible_architecture) }}/sql_exporter"
+    creates: "/tmp/sql_exporter-{{ sql_exporter_version }}.linux-{{ go_arch_map[ansible_architecture] | default(ansible_architecture) }}/sql_exporter"
   delegate_to: localhost
   check_mode: false
 
