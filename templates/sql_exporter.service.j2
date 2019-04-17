@@ -1,0 +1,18 @@
+{{ ansible_managed | comment }}
+
+[Unit]
+Description=Prometheus Sql Exporter
+After=network.target
+
+[Service]
+Type=simple
+User={{ __sql_exporter_user }}
+Group={{ __sql_exporter_group }}
+ExecStart=/usr/local/bin/sql_exporter \
+    -config.path {{ sql_exporter_config_dir }}/{{ sql_exporter_config_file }}
+
+SyslogIdentifier=sql_exporter
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

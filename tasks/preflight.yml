@@ -1,0 +1,8 @@
+---
+## There is no checksums available
+# - name: "Get checksum for {{ go_arch_map[ansible_architecture] | default(ansible_architecture) }} architecture"
+#   set_fact:
+#     __sql_exporter_checksum: "{{ item.split(' ')[0] }}"
+#   with_items:
+#     - "{{ lookup('url', 'https://github.com/justwatchcom/sql_exporter/releases/download/v' + sql_exporter_version + '/sql-exporter_' + sql_exporter_version + '_checksums.txt', wantlist=True) | list }}"
+#   when: "('linux-' + (go_arch_map[ansible_architecture] | default(ansible_architecture)) + '.tar.gz') in item"

@@ -1,0 +1,31 @@
+---
+sql_exporter_version: 0.2.0
+sql_exporter_web_listen_address: "0.0.0.0:9237"
+
+# #process_exporter_config_file_template: process-exporter.yml.j2
+sql_exporter_config_file: sql_exporter.yml
+sql_exporter_config_dir: /etc/sql_exporter
+
+sql_exporter_connections:
+ - 'glonpostgres://postgres@localhost/postgres?sslmode=disable'
+
+sql_exporter_jobs:
+ - name: "global"
+   interval: '5m'
+   connections:
+   - "{{ sql_exporter_connections }}"
+   startup_sql:
+   - 'SET lock_timeout = 1000'
+   - 'SET idle_in_transaction_session_timeout = 100'
+
+
+sql_exporter_jobs_configs:
+  - job_name: "prometheus"
+    metrics_path: "{{ prometheus_metrics_path }}"
+    static_configs:
+      - targets:
+          - "{{ ansible_fqdn | default(ansible_host) | default('localhost') }}:9090"
+  - job_name: "node"
+    file_sd_configs:
+      - files:
+          - "{{ prometheus_config_dir }}/file_sd/node.yml"
