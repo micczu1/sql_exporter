@@ -1,3 +1,6 @@
+**Obsolete.
+Current is here: https://github.com/micczu1/sql_exporter1 (wrapped up different implementation of sql_exporter)**
+
 
 # Ansible Role: sql_exporter
 
