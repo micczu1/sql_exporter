@@ -34,9 +34,7 @@ Use it in a playbook as follows:
 Some helpful tips are in original sql_exporter [README.md](https://github.com/justwatchcom/sql_exporter/blob/master/README.md):  
 https://github.com/justwatchcom/sql_exporter/blob/master/README.md
 
-## License
-
-This project is licensed under MIT License. See [LICENSE](/LICENSE) for more details.
+## Credits
 
 This role is inspired by https://github.com/cloudalchemy/ansible-mysqld-exporter  
 Sql_exporter is created by: https://github.com/justwatchcom/sql_exporter and this is only wrap-up in Ansible role.
